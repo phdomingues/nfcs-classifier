@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "nfcs-classifier"
+version = "0.1.0"
+description = ""
+authors = ["Pedro Henrique S. Domingues"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+wemake-python-styleguide = "^0.19.2"
+pandas = "^2.2.3"
+numpy = "^2.1.1"
+pydantic-settings = "^2.5.2"
+loguru = "^0.7.2"
+torch = [
+    # For Linux or Windows with CUDA support
+    { version = "^2.0.0", extras = ["cuda"], markers = "sys_platform == 'linux' or sys_platform == 'win32'" },
+    # For macOS (PyTorch does not support CUDA on macOS, so just install the CPU version)
+    { version = "^2.0.0", markers = "sys_platform == 'darwin'" }
+]
+torchvision = [
+    # For Linux or Windows with CUDA support
+    { version = "^0.15.0+cu118", extras = ["cuda"], markers = "sys_platform == 'linux' or sys_platform == 'win32'" },
+    # For macOS (PyTorch does not support CUDA on macOS, so just install the CPU version)
+    { version = "^0.15.0", markers = "sys_platform == 'darwin'" }
+]
+pillow = "^10.4.0"
+transformers = "^4.46.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,7 @@
+.bmp
+.pyc
+
+mock_data/
+data/
+__pycache__
+src/logs/
